@@ -33,7 +33,7 @@ export default function ComponentsLayout({
           <div className="flex space-x-2">
             <Button asChild variant="outline" size="sm">
               <Link
-                href="https://github.com"
+                href="https://github.com/a10x-dev/anime-ui"
                 target="_blank"
                 rel="noopener noreferrer"
               >
