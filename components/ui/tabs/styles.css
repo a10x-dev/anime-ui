@@ -1,0 +1,115 @@
+/* Base styles for the Tabs component with Ghibli-inspired aesthetics */
+
+.ghibli-tabs-list {
+  position: relative;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(250, 246, 233, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Add a subtle texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 10px;
+  }
+}
+
+.ghibli-tabs-trigger {
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 18px;
+  color: rgba(44, 117, 90, 0.7); /* Ghibli forest green with reduced opacity */
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.ghibli-tabs-trigger:hover {
+  color: #2c755a; /* Full opacity on hover */
+}
+
+.ghibli-tabs-trigger[data-state='active'] {
+  color: #2c755a;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Active indicator - glowing underline */
+.ghibli-tabs-active-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 1.5px;
+  background: linear-gradient(to right, #8dc63f, #9ed36a);
+  box-shadow: 0 0 8px rgba(141, 198, 63, 0.6);
+  margin: 0 auto;
+  width: 60%;
+  bottom: 4px;
+}
+
+/* Optional icon styling */
+.ghibli-tabs-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tab content panel */
+.ghibli-tabs-content {
+  position: relative;
+  margin-top: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(250, 246, 233, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+
+  /* Add a subtle texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 10px;
+  }
+
+  /* Style text inside the tabs content */
+  p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #2c755a;
+    margin-bottom: 10px;
+  }
+}

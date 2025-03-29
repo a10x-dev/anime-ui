@@ -1,0 +1,232 @@
+/* Base styles for the HoverCard component with Ghibli-inspired aesthetics */
+
+.ghibli-hover-card {
+  position: relative;
+  width: 320px;
+  border-radius: 14px;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(250, 246, 233, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(141, 198, 63, 0.2); /* Soft glow */
+  color: #4a5568;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+  z-index: 50;
+
+  /* Add a subtle texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 12px;
+  }
+}
+
+/* Float variant - light and airy style */
+.ghibli-hover-card-float {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(240, 248, 255, 0.85)
+  );
+  border-color: rgba(160, 216, 239, 0.6);
+
+  /* Subtle floating animation */
+  animation: ghibli-card-float 5s ease-in-out infinite;
+}
+
+@keyframes ghibli-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Grow variant - earthy, nature style */
+.ghibli-hover-card-grow {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(237, 247, 231, 0.85)
+  );
+  border-color: rgba(141, 198, 63, 0.7);
+
+  /* Add vines to the border */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid rgba(141, 198, 63, 0.2);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+}
+
+/* Sparkle variant - magical, spirit style */
+.ghibli-hover-card-sparkle {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(242, 240, 255, 0.85)
+  );
+  border-color: rgba(186, 200, 255, 0.7);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(186, 200, 255, 0.4);
+}
+
+/* Sparkles decoration for the sparkle variant */
+.ghibli-hover-card-sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  &::before {
+    top: 20px;
+    right: 30px;
+    box-shadow: -40px 90px 2px rgba(255, 255, 255, 0.8),
+      60px 50px 3px rgba(255, 255, 255, 0.6),
+      -80px 40px 2px rgba(255, 255, 255, 0.7),
+      100px 160px 1px rgba(255, 255, 255, 0.7);
+    animation: ghibli-sparkle 6s infinite alternate;
+  }
+
+  &::after {
+    bottom: 20px;
+    left: 30px;
+    box-shadow: 40px -60px 2px rgba(255, 255, 255, 0.7),
+      100px -20px 3px rgba(255, 255, 255, 0.6),
+      -50px -40px 2px rgba(255, 255, 255, 0.8),
+      -80px -100px 1px rgba(255, 255, 255, 0.6);
+    animation: ghibli-sparkle 8s 1s infinite alternate-reverse;
+  }
+}
+
+@keyframes ghibli-sparkle {
+  0% {
+    opacity: 0.2;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(-10px) scale(1);
+  }
+}
+
+/* Leaf variant - forest style */
+.ghibli-hover-card-leaf {
+  background: linear-gradient(
+    to bottom,
+    rgba(252, 252, 245, 0.9),
+    rgba(241, 248, 233, 0.85)
+  );
+  border-color: rgba(172, 196, 130, 0.7);
+}
+
+/* Leaves decoration for the leaf variant */
+.ghibli-hover-card-leaves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.6;
+  overflow: hidden;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    border-radius: 100% 0;
+    background: rgba(141, 198, 63, 0.2);
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    top: 20px;
+    right: 20px;
+    animation: ghibli-leaf-float 8s infinite ease-in-out;
+  }
+
+  &::after {
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(135deg);
+    animation: ghibli-leaf-float 7s 1s infinite ease-in-out reverse;
+  }
+}
+
+@keyframes ghibli-leaf-float {
+  0%,
+  100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+  25% {
+    transform: rotate(-40deg) translateY(-5px);
+  }
+  50% {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+  75% {
+    transform: rotate(-50deg) translateY(-3px);
+  }
+}
+
+/* Style text elements within the hover card */
+.ghibli-hover-card h3,
+.ghibli-hover-card h4 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: #2c755a; /* Ghibli forest green */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.ghibli-hover-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+}
+
+.ghibli-hover-card img {
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}

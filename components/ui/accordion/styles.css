@@ -1,0 +1,70 @@
+/* Base styles for the Accordion component with Ghibli-inspired aesthetics */
+
+.ghibli-accordion-item {
+  position: relative;
+  border-radius: 12px;
+  border: 2px solid rgba(250, 246, 233, 0.8);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  /* Add a subtle texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.ghibli-accordion-trigger {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #2c755a; /* Ghibli forest green */
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.ghibli-accordion-trigger:hover {
+  color: #1a5a43;
+  /* Add subtle highlight effect on hover */
+  background: linear-gradient(
+    to right,
+    rgba(147, 207, 171, 0.1),
+    rgba(147, 207, 171, 0.05),
+    transparent
+  );
+}
+
+.ghibli-accordion-content {
+  padding: 0 1.5rem 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a5568; /* Darker text for readability */
+  position: relative;
+  z-index: 1;
+}
+
+/* Chevron icon animation */
+.ghibli-accordion-chevron {
+  transition: transform 0.3s ease;
+}
+
+.ghibli-accordion-trigger[data-state='open'] .ghibli-accordion-chevron {
+  transform: rotate(180deg);
+}

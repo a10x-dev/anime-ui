@@ -1,0 +1,183 @@
+/* Base styles for the Checkbox component with Ghibli-inspired aesthetics */
+
+.ghibli-checkbox {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  border: 2px solid;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  /* Add texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    border-radius: 4px;
+  }
+}
+
+/* Focus state */
+.ghibli-checkbox:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(141, 198, 63, 0.35), 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Default variant - calm beige and forest green */
+.ghibli-checkbox-default {
+  border-color: rgba(141, 198, 63, 0.7);
+  background: rgba(250, 246, 233, 0.9);
+}
+
+.ghibli-checkbox-default:hover {
+  border-color: #8dc63f;
+  background: rgba(250, 246, 233, 1);
+}
+
+.ghibli-checkbox-default[data-state='checked'] {
+  background: linear-gradient(to bottom right, #8dc63f, #9ed36a);
+  border-color: transparent;
+}
+
+/* Nature variant - earthy greens */
+.ghibli-checkbox-nature {
+  border-color: rgba(44, 117, 90, 0.6);
+  background: rgba(237, 247, 231, 0.9);
+}
+
+.ghibli-checkbox-nature:hover {
+  border-color: #2c755a;
+  background: rgba(237, 247, 231, 1);
+}
+
+.ghibli-checkbox-nature[data-state='checked'] {
+  background: linear-gradient(to bottom right, #2c755a, #4d9678);
+  border-color: transparent;
+}
+
+/* Sky variant - Ghibli sky blue */
+.ghibli-checkbox-sky {
+  border-color: rgba(160, 216, 239, 0.7);
+  background: rgba(240, 248, 255, 0.9);
+}
+
+.ghibli-checkbox-sky:hover {
+  border-color: #a0d8ef;
+  background: rgba(240, 248, 255, 1);
+}
+
+.ghibli-checkbox-sky[data-state='checked'] {
+  background: linear-gradient(to bottom right, #a0d8ef, #b8e2f2);
+  border-color: transparent;
+}
+
+/* Spirit variant - magical purple */
+.ghibli-checkbox-spirit {
+  border-color: rgba(186, 200, 255, 0.7);
+  background: rgba(242, 240, 255, 0.9);
+}
+
+.ghibli-checkbox-spirit:hover {
+  border-color: #bac8ff;
+  background: rgba(242, 240, 255, 1);
+}
+
+.ghibli-checkbox-spirit[data-state='checked'] {
+  background: linear-gradient(to bottom right, #bac8ff, #d7ddff);
+  border-color: transparent;
+}
+
+/* Indicator styles */
+.ghibli-checkbox-indicator {
+  position: relative;
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sky variant has darker text */
+.ghibli-checkbox-sky[data-state='checked'] .ghibli-checkbox-indicator {
+  color: #2a4365;
+}
+
+/* Leaf animation for nature checkbox */
+.ghibli-checkbox-leaf {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -4px;
+  right: -4px;
+  border-radius: 50%;
+  background: #9ed36a;
+  box-shadow: 0 0 6px rgba(141, 198, 63, 0.6);
+  animation: leaf-appear 0.3s forwards ease-out;
+  opacity: 0;
+}
+
+@keyframes leaf-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Sparkle animation for spirit checkbox */
+.ghibli-checkbox-sparkle {
+  position: absolute;
+  inset: -4px;
+  border-radius: 8px;
+  background: transparent;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.ghibli-checkbox-sparkle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: -10px 5px 1px rgba(255, 255, 255, 0.8),
+    5px -8px 1px rgba(255, 255, 255, 0.6), 8px 7px 1px rgba(255, 255, 255, 0.7);
+  animation: sparkle-float 3s infinite ease-in-out;
+}
+
+@keyframes sparkle-float {
+  0% {
+    opacity: 0.4;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-2px) translateX(1px);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translateY(0) translateX(0);
+  }
+}

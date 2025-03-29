@@ -1,0 +1,347 @@
+/* Base styles for the Dropdown Menu component with Ghibli-inspired aesthetics */
+
+.ghibli-dropdown-content {
+  position: relative;
+  width: 220px;
+  border-radius: 12px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(250, 246, 233, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(141, 198, 63, 0.2); /* Soft glow */
+  overflow: hidden;
+  z-index: 50;
+
+  /* Add a subtle texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 10px;
+  }
+}
+
+/* SubContent styles */
+.ghibli-dropdown-subcontent {
+  position: relative;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(250, 246, 233, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(141, 198, 63, 0.2);
+}
+
+/* Default dropdown style - calm beige */
+.ghibli-dropdown-default {
+  background: rgba(250, 246, 233, 0.95);
+  border-color: rgba(234, 228, 210, 0.9);
+}
+
+/* Nature dropdown - leafy green */
+.ghibli-dropdown-nature {
+  background: rgba(237, 247, 231, 0.95);
+  border-color: rgba(141, 198, 63, 0.6);
+}
+
+.ghibli-dropdown-nature-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.5;
+
+  /* Add leaf decoration */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    border-radius: 100% 0;
+    background: rgba(141, 198, 63, 0.2);
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    top: 10px;
+    right: 10px;
+  }
+
+  &::after {
+    bottom: 10px;
+    left: 10px;
+    transform: rotate(135deg);
+  }
+}
+
+/* Sky dropdown - light blue */
+.ghibli-dropdown-sky {
+  background: linear-gradient(
+    to bottom,
+    rgba(240, 248, 255, 0.95),
+    rgba(230, 244, 255, 0.9)
+  );
+  border-color: rgba(160, 216, 239, 0.6);
+}
+
+/* Spirit dropdown - dreamy, magical */
+.ghibli-dropdown-spirit {
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 240, 255, 0.95),
+    rgba(235, 235, 250, 0.9)
+  );
+  border-color: rgba(186, 200, 255, 0.7);
+}
+
+.ghibli-dropdown-spirit-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* Add spirit dust particles */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  &::before {
+    top: 20%;
+    right: 10%;
+    box-shadow: -30px 40px 2px rgba(255, 255, 255, 0.6),
+      40px 20px 3px rgba(255, 255, 255, 0.5),
+      -50px 70px 2px rgba(255, 255, 255, 0.7);
+    animation: ghibli-dropdown-float 6s infinite alternate;
+  }
+
+  &::after {
+    bottom: 20%;
+    left: 15%;
+    box-shadow: 30px -30px 2px rgba(255, 255, 255, 0.7),
+      60px 20px 2px rgba(255, 255, 255, 0.5),
+      -20px -50px 2px rgba(255, 255, 255, 0.6);
+    animation: ghibli-dropdown-float 7s 1s infinite alternate-reverse;
+  }
+}
+
+@keyframes ghibli-dropdown-float {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-3px) translateX(2px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Menu item styles */
+.ghibli-dropdown-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4a5568;
+  outline: none;
+  transition: all 0.15s ease;
+  font-family: 'Nunito', sans-serif;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #2c755a;
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 2px rgba(141, 198, 63, 0.3);
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &[data-highlighted] {
+    background: linear-gradient(
+      to right,
+      rgba(141, 198, 63, 0.2),
+      rgba(141, 198, 63, 0.1)
+    );
+    color: #2c755a;
+  }
+}
+
+/* SubTrigger item styles */
+.ghibli-dropdown-subtrigger {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4a5568;
+  outline: none;
+  transition: all 0.15s ease;
+  font-family: 'Nunito', sans-serif;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #2c755a;
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 2px rgba(141, 198, 63, 0.3);
+  }
+
+  &[data-state='open'] {
+    background: rgba(141, 198, 63, 0.15);
+    color: #2c755a;
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.ghibli-dropdown-chevron {
+  margin-left: 8px;
+  color: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.ghibli-dropdown-subtrigger[data-state='open'] .ghibli-dropdown-chevron {
+  transform: rotate(90deg);
+}
+
+/* Checkbox and Radio items */
+.ghibli-dropdown-checkbox-item,
+.ghibli-dropdown-radio-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  border-radius: 8px;
+  padding: 8px 10px;
+  padding-left: 32px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4a5568;
+  outline: none;
+  transition: all 0.15s ease;
+  font-family: 'Nunito', sans-serif;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #2c755a;
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 2px rgba(141, 198, 63, 0.3);
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &[data-highlighted] {
+    background: linear-gradient(
+      to right,
+      rgba(141, 198, 63, 0.2),
+      rgba(141, 198, 63, 0.1)
+    );
+    color: #2c755a;
+  }
+}
+
+.ghibli-dropdown-item-icon-wrapper {
+  position: absolute;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+/* Radio indicator */
+.ghibli-dropdown-radio-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8dc63f;
+  box-shadow: 0 0 4px rgba(141, 198, 63, 0.4);
+}
+
+/* Label */
+.ghibli-dropdown-label {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2c755a;
+  opacity: 0.8;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Separator */
+.ghibli-dropdown-separator {
+  height: 1px;
+  margin: 5px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(141, 198, 63, 0.3),
+    transparent
+  );
+}
+
+/* Shortcut */
+.ghibli-dropdown-shortcut {
+  display: inline-flex;
+  margin-left: auto;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-left: 1rem;
+}

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: 60 30% 96%;
+  --foreground: 150 5% 20%;
+
+  --card: 60 30% 96%;
+  --card-foreground: 150 5% 20%;
+
+  --popover: 60 30% 96%;
+  --popover-foreground: 150 5% 20%;
+
+  --primary: 142 17% 40%;
+  --primary-foreground: 60 30% 96%;
+
+  --secondary: 60 30% 92%;
+  --secondary-foreground: 150 5% 20%;
+
+  --muted: 60 15% 90%;
+  --muted-foreground: 152 5% 40%;
+
+  --accent: 60 56% 75%;
+  --accent-foreground: 142 17% 30%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 60 30% 96%;
+
+  --border: 142 10% 75%;
+  --input: 142 10% 75%;
+  --ring: 150 5% 20%;
+
+  --radius: 0.8rem;
+}
+
+@theme {
+  --color-ghibli-green: #7d8f69;
+  --color-ghibli-green-dark: #557153;
+  --color-ghibli-green-light: #a9b388;
+  --color-ghibli-beige: #f8ecd1;
+  --color-ghibli-beige-dark: #dbc99f;
+  --color-ghibli-sky: #85c7de;
+  --color-ghibli-sky-light: #d1e5f3;
+  --color-ghibli-yellow: #f5dd90;
+  --color-ghibli-brown: #8b6f5c;
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-garamond: var(--font-garamond);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[image:ghibli-meadow] bg-fixed text-[hsl(var(--foreground))] min-h-screen;
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ghibli-inspired custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  background-color: #7d8f69; /* ghibli-green */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #557153; /* ghibli-green-dark */
+}
+
+/* Hide scrollbar for elements with .scrollbar-hide class */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}

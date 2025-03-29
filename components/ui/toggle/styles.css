@@ -1,0 +1,257 @@
+/* Base styles for the Toggle component with Ghibli-inspired aesthetics */
+
+.ghibli-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  padding: 0;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+
+  /* Add texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    border-radius: 1rem;
+    z-index: 1;
+  }
+}
+
+.ghibli-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(141, 198, 63, 0.3);
+}
+
+/* Thumb styles */
+.ghibli-toggle-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Default toggle - forest green */
+.ghibli-toggle-default {
+  background: rgba(237, 247, 231, 0.9);
+  border-color: rgba(141, 198, 63, 0.4);
+}
+
+.ghibli-toggle-default:hover {
+  background: rgba(237, 247, 231, 1);
+  border-color: rgba(141, 198, 63, 0.6);
+}
+
+.ghibli-toggle-default[data-state='on'] {
+  background: linear-gradient(to right, #8dc63f, #9ed36a);
+  border-color: transparent;
+}
+
+.ghibli-toggle-default .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+.ghibli-toggle-default[data-state='on'] .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+/* Nature toggle - earthy greens */
+.ghibli-toggle-nature {
+  background: rgba(226, 235, 223, 0.9);
+  border-color: rgba(44, 117, 90, 0.4);
+}
+
+.ghibli-toggle-nature:hover {
+  background: rgba(226, 235, 223, 1);
+  border-color: rgba(44, 117, 90, 0.6);
+}
+
+.ghibli-toggle-nature[data-state='on'] {
+  background: linear-gradient(to right, #2c755a, #4d9678);
+  border-color: transparent;
+}
+
+.ghibli-toggle-nature .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+.ghibli-toggle-nature[data-state='on'] .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+/* Nature toggle leaf effect */
+.ghibli-toggle-nature-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ghibli-toggle-nature-effect::before,
+.ghibli-toggle-nature-effect::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  border-radius: 100% 0;
+  background: rgba(141, 198, 63, 0.6);
+  transform: rotate(-45deg);
+}
+
+.ghibli-toggle-nature-effect::before {
+  top: 4px;
+  right: 6px;
+}
+
+.ghibli-toggle-nature-effect::after {
+  bottom: 4px;
+  right: 10px;
+  transform: rotate(135deg);
+}
+
+/* Sky toggle - Ghibli sky blue */
+.ghibli-toggle-sky {
+  background: rgba(230, 244, 255, 0.9);
+  border-color: rgba(160, 216, 239, 0.4);
+}
+
+.ghibli-toggle-sky:hover {
+  background: rgba(230, 244, 255, 1);
+  border-color: rgba(160, 216, 239, 0.6);
+}
+
+.ghibli-toggle-sky[data-state='on'] {
+  background: linear-gradient(to right, #a0d8ef, #b8e2f2);
+  border-color: transparent;
+}
+
+.ghibli-toggle-sky .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+.ghibli-toggle-sky[data-state='on'] .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+/* Sky toggle cloud effect */
+.ghibli-toggle-sky-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ghibli-toggle-sky-effect::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  top: 5px;
+  right: 10px;
+  box-shadow: -4px 0 0 rgba(255, 255, 255, 0.7),
+    4px 0 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Spirit toggle - magical purple */
+.ghibli-toggle-spirit {
+  background: rgba(235, 235, 250, 0.9);
+  border-color: rgba(186, 200, 255, 0.4);
+}
+
+.ghibli-toggle-spirit:hover {
+  background: rgba(235, 235, 250, 1);
+  border-color: rgba(186, 200, 255, 0.6);
+}
+
+.ghibli-toggle-spirit[data-state='on'] {
+  background: linear-gradient(to right, #bac8ff, #d7ddff);
+  border-color: transparent;
+}
+
+.ghibli-toggle-spirit .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+.ghibli-toggle-spirit[data-state='on'] .ghibli-toggle-thumb {
+  background: #fff;
+}
+
+/* Spirit toggle sparkle effect */
+.ghibli-toggle-spirit-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.ghibli-toggle-spirit-effect::before,
+.ghibli-toggle-spirit-effect::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.ghibli-toggle-spirit-effect::before {
+  top: 30%;
+  right: 30%;
+  box-shadow: -6px 2px 0 rgba(255, 255, 255, 0.8),
+    3px -3px 0 rgba(255, 255, 255, 0.7), 7px 5px 0 rgba(255, 255, 255, 0.6);
+  animation: spirit-sparkle 3s infinite alternate;
+}
+
+.ghibli-toggle-spirit-effect::after {
+  bottom: 30%;
+  right: 60%;
+  box-shadow: 6px -2px 0 rgba(255, 255, 255, 0.7),
+    -3px 3px 0 rgba(255, 255, 255, 0.6), -7px -2px 0 rgba(255, 255, 255, 0.8);
+  animation: spirit-sparkle 4s 1s infinite alternate-reverse;
+}
+
+@keyframes spirit-sparkle {
+  0% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+}

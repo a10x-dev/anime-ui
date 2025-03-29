@@ -1,0 +1,218 @@
+/* Base styles for the Tooltip component with Ghibli-inspired aesthetics */
+
+.ghibli-tooltip {
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4a5568;
+  max-width: 250px;
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(141, 198, 63, 0.15); /* Soft glow */
+
+  /* Add a subtle texture overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 8px;
+  }
+}
+
+/* Arrow styles */
+.ghibli-tooltip-arrow-wrapper {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  z-index: 1;
+}
+
+.ghibli-tooltip-arrow {
+  position: relative;
+  top: 2px;
+  fill: currentColor;
+  width: 10px;
+  height: 5px;
+}
+
+/* Default tooltip style - calm beige */
+.ghibli-tooltip-default {
+  background: rgba(250, 246, 233, 0.95);
+  border: 1px solid rgba(234, 228, 210, 0.8);
+  color: #4a5568;
+}
+
+.ghibli-tooltip-arrow-default {
+  fill: rgba(250, 246, 233, 0.95);
+  filter: drop-shadow(0 -1px 0 rgba(234, 228, 210, 0.8));
+}
+
+/* Nature tooltip - leafy green */
+.ghibli-tooltip-nature {
+  background: rgba(237, 247, 231, 0.95);
+  border: 1px solid rgba(141, 198, 63, 0.5);
+  color: #2c755a;
+}
+
+.ghibli-tooltip-arrow-nature {
+  fill: rgba(237, 247, 231, 0.95);
+  filter: drop-shadow(0 -1px 0 rgba(141, 198, 63, 0.5));
+}
+
+.ghibli-tooltip-nature-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.5;
+
+  /* Add leaf decoration */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    border-radius: 100% 0;
+    background: rgba(141, 198, 63, 0.2);
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    top: 5px;
+    right: 5px;
+  }
+
+  &::after {
+    bottom: 5px;
+    left: 5px;
+    transform: rotate(135deg);
+  }
+}
+
+/* Sky tooltip - light blue */
+.ghibli-tooltip-sky {
+  background: linear-gradient(
+    to bottom,
+    rgba(240, 248, 255, 0.95),
+    rgba(230, 244, 255, 0.92)
+  );
+  border: 1px solid rgba(160, 216, 239, 0.5);
+  color: #2a4365;
+}
+
+.ghibli-tooltip-arrow-sky {
+  fill: rgba(240, 248, 255, 0.95);
+  filter: drop-shadow(0 -1px 0 rgba(160, 216, 239, 0.5));
+}
+
+.ghibli-tooltip-sky-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+
+  /* Add cloud-like decoration */
+  &::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    top: 5px;
+    right: 10px;
+    box-shadow: -5px 0 0 rgba(255, 255, 255, 0.7),
+      5px 0 0 rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Spirit tooltip - dreamy, magical */
+.ghibli-tooltip-spirit {
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 240, 255, 0.95),
+    rgba(235, 235, 250, 0.92)
+  );
+  border: 1px solid rgba(186, 200, 255, 0.5);
+  color: #414575;
+}
+
+.ghibli-tooltip-arrow-spirit {
+  fill: rgba(242, 240, 255, 0.95);
+  filter: drop-shadow(0 -1px 0 rgba(186, 200, 255, 0.5));
+}
+
+.ghibli-tooltip-spirit-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* Add spirit dust particles */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  &::before {
+    top: 20%;
+    right: 10%;
+    box-shadow: -15px 20px 1px rgba(255, 255, 255, 0.7),
+      20px 10px 1px rgba(255, 255, 255, 0.6),
+      -25px 35px 1px rgba(255, 255, 255, 0.8);
+    animation: tooltip-sparkle 3s infinite alternate;
+  }
+
+  &::after {
+    bottom: 20%;
+    left: 15%;
+    box-shadow: 15px -15px 1px rgba(255, 255, 255, 0.8),
+      30px 10px 1px rgba(255, 255, 255, 0.6),
+      -10px -25px 1px rgba(255, 255, 255, 0.7);
+    animation: tooltip-sparkle 4s 1s infinite alternate-reverse;
+  }
+}
+
+@keyframes tooltip-sparkle {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-1px) translateX(1px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(0) translateX(0);
+  }
+}

@@ -1,0 +1,148 @@
+/* Base styles for the Toast component with Ghibli-inspired aesthetics */
+
+.ghibli-toast {
+  position: relative;
+  border-radius: 12px;
+  padding: 16px 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  animation: ghibli-float 5s ease-in-out infinite;
+}
+
+/* Subtle floating animation for the toast */
+@keyframes ghibli-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Add a subtle texture overlay */
+.ghibli-toast::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.08' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Default toast style - calm beige */
+.ghibli-toast-default {
+  background: rgba(250, 246, 233, 0.9);
+  border-color: rgba(234, 228, 210, 0.8);
+  color: #4a5568;
+}
+
+/* Success toast - Ghibli forest green */
+.ghibli-toast-success {
+  background: rgba(200, 230, 201, 0.9);
+  border-color: #8dc63f;
+  color: #2c755a;
+}
+
+/* Success toast sparkle animation */
+.ghibli-toast-success::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 0 20px 10px rgba(141, 198, 63, 0.4);
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Error toast - warm red */
+.ghibli-toast-error {
+  background: rgba(254, 215, 215, 0.9);
+  border-color: #e53e3e;
+  color: #742a2a;
+}
+
+/* Warning toast - warm amber */
+.ghibli-toast-warning {
+  background: rgba(254, 235, 200, 0.9);
+  border-color: #f2ae72;
+  color: #744210;
+}
+
+/* Info toast - sky blue */
+.ghibli-toast-info {
+  background: rgba(190, 227, 248, 0.9);
+  border-color: #a0d8ef;
+  color: #2a4365;
+}
+
+/* Toast title with a slight glow effect */
+.ghibli-toast-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Toast description with softer text */
+.ghibli-toast-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: inherit;
+  opacity: 0.85;
+}
+
+/* Toast action button */
+.ghibli-toast-action {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: inherit;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ghibli-toast-action:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.ghibli-toast-action:active {
+  transform: translateY(0);
+}
+
+/* Toast close button */
+.ghibli-toast-close {
+  color: inherit;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.ghibli-toast-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
