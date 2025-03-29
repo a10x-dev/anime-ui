@@ -82,7 +82,7 @@ export default function DialogPage() {
                 <DialogTrigger asChild>
                   <Button variant="nature">Nature Dialog</Button>
                 </DialogTrigger>
-                <DialogContent variant="nature">
+                <DialogContent>
                   <DialogHeader>
                     <DialogTitle>Forest Spirit</DialogTitle>
                     <DialogDescription>
@@ -109,7 +109,7 @@ export default function DialogPage() {
                 <DialogTrigger asChild>
                   <Button variant="sky">Sky Dialog</Button>
                 </DialogTrigger>
-                <DialogContent variant="sky">
+                <DialogContent>
                   <DialogHeader>
                     <DialogTitle>Skyward Journey</DialogTitle>
                     <DialogDescription>

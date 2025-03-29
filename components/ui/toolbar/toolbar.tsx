@@ -155,7 +155,10 @@ ToolbarButton.displayName = ToolbarPrimitive.Button.displayName;
  * -----------------------------------------------------------------------------------------------*/
 
 export interface ToolbarSeparatorProps
-  extends React.ComponentPropsWithoutRef<typeof ToolbarPrimitive.Separator>,
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof ToolbarPrimitive.Separator>,
+      'orientation'
+    >,
     VariantProps<typeof toolbarSeparatorVariants> {}
 
 const ToolbarSeparator = React.forwardRef<
@@ -167,6 +170,7 @@ const ToolbarSeparator = React.forwardRef<
     className={cn(
       toolbarSeparatorVariants({ variant, orientation, className })
     )}
+    orientation={orientation === 'vertical' ? 'vertical' : 'horizontal'}
     {...props}
   />
 ));

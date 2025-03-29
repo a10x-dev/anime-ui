@@ -146,8 +146,8 @@ export default function ToastPage() {
               Show Action Toast
             </Button>
             <p className="text-sm text-muted-foreground">
-              This is just a placeholder as we don't have an event system set up
-              for this example.
+              This is just a placeholder as we don&apos;t have an event system
+              set up for this example.
             </p>
           </div>
         </section>
@@ -175,7 +175,7 @@ export default function ToastPage() {
                 growth effect
               </li>
               <li>
-                <strong>Error:</strong> A subtle shake animation that's
+                <strong>Error:</strong> A subtle shake animation that&apos;s
                 noticeable but not distracting
               </li>
               <li>

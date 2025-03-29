@@ -23,7 +23,6 @@ export {
 };
 
 export type {
-  SelectProps,
   SelectTriggerProps,
   SelectContentProps,
   SelectItemProps,

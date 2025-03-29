@@ -5,8 +5,8 @@ import './styles.css';
 import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
 import * as React from 'react';
 
-import { AnimatePresence, motion } from 'motion/react';
-import { cn, ghibliAnimations } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 const HoverCard = HoverCardPrimitive.Root;
 

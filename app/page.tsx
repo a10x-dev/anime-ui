@@ -360,7 +360,7 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>Financial performance</CardTitle>
                 <CardDescription>
-                  Review your company's KPIs compared to targets
+                  Review your company&apos;s KPIs compared to targets
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -989,7 +989,7 @@ export default function Home() {
                       <DialogTitle>Edit Profile</DialogTitle>
                       <DialogDescription>
                         Make changes to your profile here. Click save when
-                        you're done.
+                        you&apos;re done.
                       </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">

@@ -47,7 +47,7 @@ export default function SelectPage() {
                   <SelectLabel>Studio Ghibli Films</SelectLabel>
                   <SelectItem value="spirited-away">Spirited Away</SelectItem>
                   <SelectItem value="howls-moving-castle">
-                    Howl's Moving Castle
+                    Howl&apos;s Moving Castle
                   </SelectItem>
                   <SelectItem value="princess-mononoke">
                     Princess Mononoke

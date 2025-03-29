@@ -71,7 +71,10 @@ const indicatorVariants = cva('flex items-center justify-center', {
 });
 
 export interface RadioGroupProps
-  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>,
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>,
+      'orientation'
+    >,
     VariantProps<typeof radioGroupVariants> {}
 
 const RadioGroup = React.forwardRef<
@@ -81,6 +84,7 @@ const RadioGroup = React.forwardRef<
   return (
     <RadioGroupPrimitive.Root
       className={cn(radioGroupVariants({ orientation, className }))}
+      orientation={orientation === 'horizontal' ? 'horizontal' : 'vertical'}
       {...props}
       ref={ref}
     />

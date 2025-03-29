@@ -124,9 +124,11 @@ const Slider = React.forwardRef<
 });
 Slider.displayName = SliderPrimitive.Root.displayName;
 
-interface SliderThumbProps extends VariantProps<typeof sliderThumbVariants> {}
-
-const SliderThumb = ({ variant, size, animation }: SliderThumbProps) => {
+const SliderThumb = ({
+  variant,
+  size,
+  animation,
+}: VariantProps<typeof sliderThumbVariants>) => {
   if (animation === 'grow') {
     return (
       <SliderPrimitive.Thumb

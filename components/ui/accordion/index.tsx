@@ -3,9 +3,8 @@
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import * as React from 'react';
 
-import { AnimatePresence, motion } from 'motion/react';
-
 import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 // ChevronDown icon component for the accordion toggle
 const ChevronDown = ({ className }: { className?: string }) => (

@@ -1,5 +1,9 @@
 /* Base styles for the Tabs component with Ghibli-inspired aesthetics */
 
+/* ---------------------------------- *
+ * TabsList Variants
+ * ---------------------------------- */
+
 .ghibli-tabs-list {
   position: relative;
   border-radius: 12px;
@@ -24,6 +28,31 @@
   }
 }
 
+/* Nature variant - earthy green tones */
+.ghibli-tabs-list-nature {
+  background: rgba(229, 239, 224, 0.3);
+  border: 2px solid rgba(141, 198, 63, 0.3);
+  box-shadow: 0 4px 16px rgba(141, 198, 63, 0.1);
+}
+
+/* Sky variant - blue tones */
+.ghibli-tabs-list-sky {
+  background: rgba(213, 230, 245, 0.3);
+  border: 2px solid rgba(124, 177, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(124, 177, 255, 0.1);
+}
+
+/* Spirit variant - warm beige and gold tones */
+.ghibli-tabs-list-spirit {
+  background: rgba(255, 246, 224, 0.3);
+  border: 2px solid rgba(217, 165, 99, 0.3);
+  box-shadow: 0 4px 16px rgba(217, 165, 99, 0.1);
+}
+
+/* ---------------------------------- *
+ * TabsTrigger Variants
+ * ---------------------------------- */
+
 .ghibli-tabs-trigger {
   position: relative;
   border-radius: 8px;
@@ -46,7 +75,56 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Active indicator - glowing underline */
+/* Nature variant */
+.ghibli-tabs-trigger-nature {
+  color: rgba(44, 117, 90, 0.7);
+}
+
+.ghibli-tabs-trigger-nature:hover {
+  color: #2c755a;
+}
+
+.ghibli-tabs-trigger-nature[data-state='active'] {
+  color: #2c755a;
+  background-color: rgba(229, 239, 224, 0.5);
+  box-shadow: 0 2px 8px rgba(141, 198, 63, 0.1);
+}
+
+/* Sky variant */
+.ghibli-tabs-trigger-sky {
+  color: rgba(66, 99, 171, 0.7);
+}
+
+.ghibli-tabs-trigger-sky:hover {
+  color: #4263ab;
+}
+
+.ghibli-tabs-trigger-sky[data-state='active'] {
+  color: #4263ab;
+  background-color: rgba(213, 230, 245, 0.5);
+  box-shadow: 0 2px 8px rgba(124, 177, 255, 0.1);
+}
+
+/* Spirit variant */
+.ghibli-tabs-trigger-spirit {
+  color: rgba(150, 111, 51, 0.7);
+}
+
+.ghibli-tabs-trigger-spirit:hover {
+  color: #966f33;
+}
+
+.ghibli-tabs-trigger-spirit[data-state='active'] {
+  color: #966f33;
+  background-color: rgba(255, 246, 224, 0.5);
+  box-shadow: 0 2px 8px rgba(217, 165, 99, 0.1);
+}
+
+/* ---------------------------------- *
+ * Active Indicator Variants
+ * ---------------------------------- */
+
+/* Default active indicator - green */
 .ghibli-tabs-active-indicator {
   position: absolute;
   bottom: 0;
@@ -61,6 +139,24 @@
   bottom: 4px;
 }
 
+/* Nature indicator - leafy green */
+.ghibli-tabs-active-indicator-nature {
+  background: linear-gradient(to right, #7cb342, #8bc34a);
+  box-shadow: 0 0 8px rgba(139, 195, 74, 0.6);
+}
+
+/* Sky indicator - blue */
+.ghibli-tabs-active-indicator-sky {
+  background: linear-gradient(to right, #4fc3f7, #29b6f6);
+  box-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+}
+
+/* Spirit indicator - gold */
+.ghibli-tabs-active-indicator-spirit {
+  background: linear-gradient(to right, #ffd54f, #ffca28);
+  box-shadow: 0 0 8px rgba(255, 213, 79, 0.6);
+}
+
 /* Optional icon styling */
 .ghibli-tabs-icon {
   display: inline-flex;
@@ -68,7 +164,11 @@
   justify-content: center;
 }
 
-/* Tab content panel */
+/* ---------------------------------- *
+ * TabsContent Variants
+ * ---------------------------------- */
+
+/* Tab content panel - default */
 .ghibli-tabs-content {
   position: relative;
   margin-top: 10px;
@@ -111,5 +211,124 @@
     font-weight: 700;
     color: #2c755a;
     margin-bottom: 10px;
+  }
+}
+
+/* Nature content variant */
+.ghibli-tabs-content-nature {
+  background: rgba(229, 239, 224, 0.4);
+  border: 2px solid rgba(141, 198, 63, 0.3);
+  box-shadow: 0 6px 15px rgba(141, 198, 63, 0.08);
+}
+
+.ghibli-tabs-content-nature h1,
+.ghibli-tabs-content-nature h2,
+.ghibli-tabs-content-nature h3,
+.ghibli-tabs-content-nature h4 {
+  color: #2c755a;
+}
+
+/* Sky content variant */
+.ghibli-tabs-content-sky {
+  background: rgba(213, 230, 245, 0.4);
+  border: 2px solid rgba(124, 177, 255, 0.3);
+  box-shadow: 0 6px 15px rgba(124, 177, 255, 0.08);
+}
+
+.ghibli-tabs-content-sky h1,
+.ghibli-tabs-content-sky h2,
+.ghibli-tabs-content-sky h3,
+.ghibli-tabs-content-sky h4 {
+  color: #4263ab;
+}
+
+/* Spirit content variant */
+.ghibli-tabs-content-spirit {
+  background: rgba(255, 246, 224, 0.4);
+  border: 2px solid rgba(217, 165, 99, 0.3);
+  box-shadow: 0 6px 15px rgba(217, 165, 99, 0.08);
+}
+
+.ghibli-tabs-content-spirit h1,
+.ghibli-tabs-content-spirit h2,
+.ghibli-tabs-content-spirit h3,
+.ghibli-tabs-content-spirit h4 {
+  color: #966f33;
+}
+
+/* ---------------------------------- *
+ * Special Effects
+ * ---------------------------------- */
+
+/* Nature effect - subtle leaf animation in corner */
+.ghibli-tabs-nature-effect {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238bc34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21c0 1-1 2-2 2s-2-1-2-2h4zM12 3C5 10 2 8.5 2 14c0 5.5 7 5 10 1.5V3z'/%3E%3Cpath d='M5 14c0-5 6-10 12-9v16'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  animation: floatLeaf 5s infinite ease-in-out;
+}
+
+@keyframes floatLeaf {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Sky effect - cloud animation */
+.ghibli-tabs-sky-effect {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 30px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234fc3f7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 10h-1.26A8 8 0 109 20h9a5 5 0 100-10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  animation: floatCloud 8s infinite ease-in-out;
+}
+
+@keyframes floatCloud {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Spirit effect - sparkle animation */
+.ghibli-tabs-spirit-effect {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd54f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
   }
 }

@@ -6,6 +6,7 @@ import * as React from 'react';
 
 import { HTMLMotionProps, motion } from 'motion/react';
 
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 interface AvatarProps extends Omit<HTMLMotionProps<'div'>, 'onDrag'> {
@@ -81,9 +82,9 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         {...props}
       >
         {status !== 'error' && src ? (
-          <img
+          <Image
             src={src}
-            alt={alt}
+            alt={alt || 'Avatar'}
             className="ghibli-avatar-image"
             onLoad={handleLoad}
             onError={handleError}

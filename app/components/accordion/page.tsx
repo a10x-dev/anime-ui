@@ -61,7 +61,7 @@ export default function AccordionPage() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
-                  <AccordionTrigger>Howl's Moving Castle</AccordionTrigger>
+                  <AccordionTrigger>Howl&apos;s Moving Castle</AccordionTrigger>
                   <AccordionContent>
                     Released in 2004, this film is about a young milliner named
                     Sophie who is turned into an elderly woman by a witch who
@@ -226,7 +226,7 @@ export default function AccordionPage() {
                     <ul className="list-disc pl-5 space-y-2">
                       <li>Castle in the Sky (1986)</li>
                       <li>Porco Rosso (1992)</li>
-                      <li>Kiki's Delivery Service (1989)</li>
+                      <li>Kiki&apos;s Delivery Service (1989)</li>
                       <li>The Wind Rises (2013)</li>
                     </ul>
                   </AccordionContent>
@@ -236,7 +236,7 @@ export default function AccordionPage() {
                   <AccordionContent>
                     <ul className="list-disc pl-5 space-y-2">
                       <li>Spirited Away (2001)</li>
-                      <li>Howl's Moving Castle (2004)</li>
+                      <li>Howl&apos;s Moving Castle (2004)</li>
                       <li>Ponyo (2008)</li>
                       <li>The Tale of The Princess Kaguya (2013)</li>
                     </ul>
@@ -346,7 +346,7 @@ function ControlledAccordion() {
         <AccordionItem value="item-1">
           <AccordionTrigger>Controlled Item 1</AccordionTrigger>
           <AccordionContent>
-            This item's state is controlled programmatically by the buttons
+            This item&apos;s state is controlled programmatically by the buttons
             above.
           </AccordionContent>
         </AccordionItem>

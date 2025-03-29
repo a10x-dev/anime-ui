@@ -104,7 +104,7 @@ export default function RadioGroupPage() {
                 </div>
                 <div className="flex items-center space-x-2 mb-3">
                   <RadioGroupItem value="howl" id="sky-howl" variant="sky" />
-                  <label htmlFor="sky-howl">Howl's Moving Castle</label>
+                  <label htmlFor="sky-howl">Howl&apos;s Moving Castle</label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="wind" id="sky-wind" variant="sky" />
@@ -132,7 +132,9 @@ export default function RadioGroupPage() {
                     id="spirit-kiki"
                     variant="spirit"
                   />
-                  <label htmlFor="spirit-kiki">Kiki's Delivery Service</label>
+                  <label htmlFor="spirit-kiki">
+                    Kiki&apos;s Delivery Service
+                  </label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem

@@ -76,7 +76,7 @@ export default function TabsPage() {
               <h3 className="text-xl font-bold text-ghibli-green-dark mb-4">
                 Nature Variant
               </h3>
-              <Tabs defaultValue="totoro" variant="nature">
+              <Tabs defaultValue="totoro">
                 <TabsList>
                   <TabsTrigger value="totoro">Totoro</TabsTrigger>
                   <TabsTrigger value="ponyo">Ponyo</TabsTrigger>
@@ -117,7 +117,7 @@ export default function TabsPage() {
               <h3 className="text-xl font-bold text-ghibli-green-dark mb-4">
                 Sky Variant
               </h3>
-              <Tabs defaultValue="castle" variant="sky">
+              <Tabs defaultValue="castle">
                 <TabsList>
                   <TabsTrigger value="castle">Castle in the Sky</TabsTrigger>
                   <TabsTrigger value="porco">Porco Rosso</TabsTrigger>
@@ -165,7 +165,7 @@ export default function TabsPage() {
           </p>
 
           <div className="bg-white/40 backdrop-blur-sm p-6 rounded-lg border-2 border-ghibli-beige">
-            <Tabs defaultValue="spirits" variant="spirit">
+            <Tabs defaultValue="spirits">
               <TabsList className="w-full">
                 <TabsTrigger value="spirits" className="flex-1">
                   Spirits

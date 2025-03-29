@@ -1,6 +1,6 @@
 import { Clock, MoreVertical } from 'lucide-react';
 
-import { AnimatedCard } from '@/components/ui/animated-card';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -37,7 +37,7 @@ export function VideoCard({
         <div className="relative mb-3 rounded-xl overflow-hidden">
           {/* Thumbnail */}
           <div className="aspect-video bg-ghibli-beige-dark relative overflow-hidden">
-            <img
+            <Image
               src={thumbnail}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -72,7 +72,7 @@ export function VideoCard({
             <div className="flex-shrink-0 mr-3">
               {channelAvatar ? (
                 <div className="w-9 h-9 rounded-full overflow-hidden">
-                  <img
+                  <Image
                     src={channelAvatar}
                     alt={channelName}
                     className="w-full h-full object-cover"

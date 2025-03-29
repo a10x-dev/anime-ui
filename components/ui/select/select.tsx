@@ -8,29 +8,33 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
 const selectTriggerVariants = cva(
-  'flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex h-10 w-full items-center justify-between border-2 bg-white/70 px-3 py-2 text-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: 'border-ghibli-green-dark/30 focus:ring-ghibli-green',
-        outline: 'border-ghibli-green-dark focus:ring-ghibli-green',
+        default:
+          'border-ghibli-beige-dark text-ghibli-brown placeholder-ghibli-brown/60 focus:border-ghibli-green',
+        outline:
+          'border-ghibli-green-dark text-ghibli-brown placeholder-ghibli-brown/60 focus:border-ghibli-green',
         // Ghibli-inspired variants
         nature:
-          'border-ghibli-green bg-ghibli-green-light/10 focus:ring-ghibli-green',
-        sky: 'border-ghibli-sky bg-ghibli-sky/10 focus:ring-ghibli-sky',
+          'border-ghibli-green text-ghibli-green-dark placeholder-ghibli-green-dark/60 bg-ghibli-green-light/10 focus:border-ghibli-green-dark',
+        sky: 'border-ghibli-sky text-ghibli-blue placeholder-ghibli-blue/60 bg-ghibli-sky/10 focus:border-ghibli-blue',
         spirit:
-          'border-ghibli-beige bg-ghibli-beige/10 focus:ring-ghibli-beige',
+          'border-ghibli-beige text-ghibli-brown placeholder-ghibli-brown/60 bg-ghibli-beige/10 focus:border-ghibli-brown',
       },
       size: {
-        default: 'h-10',
-        sm: 'h-8 text-xs px-2',
-        lg: 'h-12 text-base px-4',
+        default: 'h-10 py-2',
+        sm: 'h-8 px-2 py-1 text-xs',
+        lg: 'h-12 px-4 py-3 text-lg',
       },
       rounded: {
         default: 'rounded-md',
         sm: 'rounded',
         lg: 'rounded-lg',
         full: 'rounded-full',
+        leftFull: 'rounded-l-full',
+        rightFull: 'rounded-r-full',
       },
     },
     defaultVariants: {
@@ -42,11 +46,11 @@ const selectTriggerVariants = cva(
 );
 
 const selectContentVariants = cva(
-  'relative z-50 min-w-[12rem] overflow-hidden rounded-md border border-slate-200 bg-white text-slate-950 shadow-lg backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+  'relative z-50 min-w-[12rem] overflow-hidden border-2 border-input bg-white/85 text-slate-950 shadow-lg backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
   {
     variants: {
       variant: {
-        default: 'border-ghibli-green-dark/30 bg-white/95',
+        default: 'border-ghibli-beige-dark bg-white/95',
         outline: 'border-ghibli-green-dark bg-white/95',
         // Ghibli-inspired variants
         nature: 'border-ghibli-green bg-ghibli-green-light/10',
@@ -63,6 +67,8 @@ const selectContentVariants = cva(
         sm: 'rounded',
         lg: 'rounded-lg',
         full: 'rounded-xl overflow-hidden',
+        leftFull: 'rounded-l-xl overflow-hidden',
+        rightFull: 'rounded-r-xl overflow-hidden',
       },
     },
     defaultVariants: {
@@ -74,18 +80,18 @@ const selectContentVariants = cva(
 );
 
 const selectItemVariants = cva(
-  'relative flex w-full cursor-pointer select-none items-center py-2 px-6 text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 rounded-md transition-colors duration-150',
+  'relative flex w-full cursor-pointer select-none items-center py-2 px-6 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 rounded-md transition-colors duration-150',
   {
     variants: {
       variant: {
         default:
-          'hover:bg-ghibli-green-light/20 hover:text-ghibli-green-dark data-[highlighted]:bg-ghibli-green-light/20 data-[highlighted]:text-ghibli-green-dark',
+          'hover:bg-ghibli-beige/30 hover:text-ghibli-brown data-[highlighted]:bg-ghibli-beige/30 data-[highlighted]:text-ghibli-brown',
         outline:
-          'hover:bg-ghibli-green-light/20 hover:text-ghibli-green-dark data-[highlighted]:bg-ghibli-green-light/20 data-[highlighted]:text-ghibli-green-dark',
+          'hover:bg-ghibli-green-dark/20 hover:text-ghibli-brown data-[highlighted]:bg-ghibli-green-dark/20 data-[highlighted]:text-ghibli-brown',
         // Ghibli-inspired variants
         nature:
           'hover:bg-ghibli-green-light/30 hover:text-ghibli-green-dark data-[highlighted]:bg-ghibli-green-light/30 data-[highlighted]:text-ghibli-green-dark',
-        sky: 'hover:bg-ghibli-sky/30 hover:text-ghibli-blue-dark data-[highlighted]:bg-ghibli-sky/30 data-[highlighted]:text-ghibli-blue-dark',
+        sky: 'hover:bg-ghibli-sky/30 hover:text-ghibli-blue data-[highlighted]:bg-ghibli-sky/30 data-[highlighted]:text-ghibli-blue',
         spirit:
           'hover:bg-ghibli-beige/30 hover:text-ghibli-brown data-[highlighted]:bg-ghibli-beige/30 data-[highlighted]:text-ghibli-brown',
       },
@@ -99,6 +105,13 @@ const selectItemVariants = cva(
 /* -------------------------------------------------------------------------------------------------
  * Select
  * -----------------------------------------------------------------------------------------------*/
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { variant, size, rounded, ...rest } = {
+  variant: 'default',
+  size: 'default',
+  rounded: 'default',
+};
 
 const Select = SelectPrimitive.Root;
 Select.displayName = SelectPrimitive.Root.displayName;

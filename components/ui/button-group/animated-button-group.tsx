@@ -36,7 +36,7 @@ const AnimatedButtonGroup = React.forwardRef<
     );
 
     // Animation options based on the animation type
-    let motionProps: Record<string, any> = {};
+    let motionProps: Record<string, unknown> = {};
 
     switch (animation) {
       case 'float':
@@ -112,16 +112,13 @@ const AnimatedButtonGroup = React.forwardRef<
         motionProps = {};
     }
 
-    // Extract HTML props to avoid type conflicts
-    const { onAnimationStart, onDrag, onDragEnd, onDragStart, ...htmlProps } =
-      props as any;
-
     return (
       <motion.div
         className={groupClasses}
         ref={ref}
         {...motionProps}
-        {...htmlProps}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        {...(props as any)}
       >
         {children}
       </motion.div>

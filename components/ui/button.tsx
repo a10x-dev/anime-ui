@@ -79,6 +79,8 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
       size,
       rounded,
       animation = 'both',
+      // We're not using asChild but it's in the interface
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       asChild,
       ...props
     },
@@ -112,6 +114,8 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
         ref={ref}
         {...motionProps}
         // Type assertion to avoid conflicts between HTMLButtonElement and motion.button props
+        // Using any is necessary here due to incompatible event handler types between React and Framer Motion
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {...(props as any)}
       />
     );

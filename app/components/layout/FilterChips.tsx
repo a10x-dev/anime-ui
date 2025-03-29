@@ -1,7 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { ButtonGroup } from '@/components/ui/button-group/button-group';
 import React from 'react';
 
 type FilterChipProps = {
@@ -27,7 +26,6 @@ const FilterChip = ({ label, active = false, onClick }: FilterChipProps) => (
 );
 
 export function FilterChips() {
-  const [scrollPosition, setScrollPosition] = React.useState(0);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [showScrollButtons, setShowScrollButtons] = React.useState({
     left: false,
@@ -62,7 +60,6 @@ export function FilterChips() {
       const container = scrollContainerRef.current;
       const newPosition = container.scrollLeft;
 
-      setScrollPosition(newPosition);
       setShowScrollButtons({
         left: newPosition > 0,
         right: newPosition < container.scrollWidth - container.clientWidth - 10,

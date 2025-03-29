@@ -8,6 +8,11 @@ import React from 'react';
 export default function CheckboxPage() {
   const [checked, setChecked] = React.useState<boolean>(false);
 
+  // Create a handler function to convert CheckedState to boolean
+  const handleCheckedChange = (value: boolean | 'indeterminate') => {
+    setChecked(value === true);
+  };
+
   return (
     <div className="container mx-auto px-4 py-10">
       <div className="text-center mb-12">
@@ -25,7 +30,7 @@ export default function CheckboxPage() {
           </h2>
           <p className="mb-6">
             Our checkboxes come in four magical variants inspired by Studio
-            Ghibli's aesthetic.
+            Ghibli&apos;s aesthetic.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -94,7 +99,7 @@ export default function CheckboxPage() {
                 id="controlled"
                 variant="nature"
                 checked={checked}
-                onCheckedChange={setChecked}
+                onCheckedChange={handleCheckedChange}
               />
               <label htmlFor="controlled" className="text-sm font-medium">
                 {checked ? 'Checked' : 'Unchecked'}
@@ -123,10 +128,12 @@ export default function CheckboxPage() {
 
 // Controlled checkbox
 const [checked, setChecked] = React.useState(false);
+const handleCheckedChange = (value) => setChecked(value === true);
+
 <Checkbox 
   id="terms" 
   checked={checked} 
-  onCheckedChange={setChecked} 
+  onCheckedChange={handleCheckedChange} 
 />
 `}</code>
             </pre>

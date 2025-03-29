@@ -14,7 +14,6 @@ import {
 import {
   Toolbar,
   ToolbarButton,
-  ToolbarLink,
   ToolbarSeparator,
   ToolbarToggleGroup,
   ToolbarToggleItem,

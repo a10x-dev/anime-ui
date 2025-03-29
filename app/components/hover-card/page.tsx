@@ -71,11 +71,7 @@ export default function HoverCardPage() {
                 <HoverCardTrigger asChild>
                   <Button variant="nature">Nature Card</Button>
                 </HoverCardTrigger>
-                <HoverCardContent
-                  animation="float"
-                  variant="nature"
-                  className="w-80"
-                >
+                <HoverCardContent variant="nature" className="w-80">
                   <div className="space-y-2">
                     <h4 className="text-sm font-semibold">Forest Spirit</h4>
                     <p className="text-sm">
@@ -95,11 +91,7 @@ export default function HoverCardPage() {
                 <HoverCardTrigger asChild>
                   <Button variant="sky">Sky Card</Button>
                 </HoverCardTrigger>
-                <HoverCardContent
-                  animation="grow"
-                  variant="sky"
-                  className="w-80"
-                >
+                <HoverCardContent variant="sky" className="w-80">
                   <div className="space-y-2">
                     <h4 className="text-sm font-semibold">Skyward Journey</h4>
                     <p className="text-sm">
@@ -119,11 +111,7 @@ export default function HoverCardPage() {
                 <HoverCardTrigger asChild>
                   <Button variant="outline">Spirit Card</Button>
                 </HoverCardTrigger>
-                <HoverCardContent
-                  animation="sparkle"
-                  variant="spirit"
-                  className="w-80"
-                >
+                <HoverCardContent variant="spirit" className="w-80">
                   <div className="space-y-2">
                     <h4 className="text-sm font-semibold">Magical Spirit</h4>
                     <p className="text-sm">
@@ -143,7 +131,7 @@ export default function HoverCardPage() {
                 <HoverCardTrigger asChild>
                   <Button>Leaf Card</Button>
                 </HoverCardTrigger>
-                <HoverCardContent animation="leaf" className="w-80">
+                <HoverCardContent className="w-80">
                   <div className="space-y-2">
                     <h4 className="text-sm font-semibold">Leaf in the Wind</h4>
                     <p className="text-sm">

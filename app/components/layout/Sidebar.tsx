@@ -43,23 +43,6 @@ const SidebarItem = ({
   </Link>
 );
 
-const SidebarSection = ({
-  title,
-  children,
-}: {
-  title?: string;
-  children: React.ReactNode;
-}) => (
-  <div className="mb-4">
-    {title && (
-      <h3 className="px-4 mb-1 text-xs font-semibold text-ghibli-brown opacity-70 uppercase">
-        {title}
-      </h3>
-    )}
-    <div>{children}</div>
-  </div>
-);
-
 export function Sidebar() {
   return (
     <aside className="w-56 h-[calc(100vh-64px)] overflow-y-auto bg-ghibli-beige/40 backdrop-blur-sm border-r border-ghibli-beige-dark/30 py-2 px-2 flex-shrink-0">
