@@ -42,12 +42,12 @@ const selectTriggerVariants = cva(
 );
 
 const selectContentVariants = cva(
-  'relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-200 bg-white text-slate-950 shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+  'relative z-50 min-w-[12rem] overflow-hidden rounded-md border border-slate-200 bg-white text-slate-950 shadow-lg backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
   {
     variants: {
       variant: {
-        default: 'border-ghibli-green-dark/30',
-        outline: 'border-ghibli-green-dark',
+        default: 'border-ghibli-green-dark/30 bg-white/95',
+        outline: 'border-ghibli-green-dark bg-white/95',
         // Ghibli-inspired variants
         nature: 'border-ghibli-green bg-ghibli-green-light/10',
         sky: 'border-ghibli-sky bg-ghibli-sky/10',
@@ -62,7 +62,7 @@ const selectContentVariants = cva(
         default: 'rounded-md',
         sm: 'rounded',
         lg: 'rounded-lg',
-        full: 'rounded-md', // keeping this as rounded-md intentionally
+        full: 'rounded-xl overflow-hidden',
       },
     },
     defaultVariants: {
@@ -74,16 +74,20 @@ const selectContentVariants = cva(
 );
 
 const selectItemVariants = cva(
-  'relative flex w-full cursor-default select-none items-center py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+  'relative flex w-full cursor-pointer select-none items-center py-2 px-6 text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 rounded-md transition-colors duration-150',
   {
     variants: {
       variant: {
-        default: 'focus:bg-ghibli-green-light/20 focus:text-ghibli-green-dark',
-        outline: 'focus:bg-ghibli-green-light/20 focus:text-ghibli-green-dark',
+        default:
+          'hover:bg-ghibli-green-light/20 hover:text-ghibli-green-dark data-[highlighted]:bg-ghibli-green-light/20 data-[highlighted]:text-ghibli-green-dark',
+        outline:
+          'hover:bg-ghibli-green-light/20 hover:text-ghibli-green-dark data-[highlighted]:bg-ghibli-green-light/20 data-[highlighted]:text-ghibli-green-dark',
         // Ghibli-inspired variants
-        nature: 'focus:bg-ghibli-green-light/30 focus:text-ghibli-green-dark',
-        sky: 'focus:bg-ghibli-sky/30 focus:text-ghibli-blue-dark',
-        spirit: 'focus:bg-ghibli-beige/30 focus:text-ghibli-brown',
+        nature:
+          'hover:bg-ghibli-green-light/30 hover:text-ghibli-green-dark data-[highlighted]:bg-ghibli-green-light/30 data-[highlighted]:text-ghibli-green-dark',
+        sky: 'hover:bg-ghibli-sky/30 hover:text-ghibli-blue-dark data-[highlighted]:bg-ghibli-sky/30 data-[highlighted]:text-ghibli-blue-dark',
+        spirit:
+          'hover:bg-ghibli-beige/30 hover:text-ghibli-brown data-[highlighted]:bg-ghibli-beige/30 data-[highlighted]:text-ghibli-brown',
       },
     },
     defaultVariants: {
@@ -96,22 +100,7 @@ const selectItemVariants = cva(
  * Select
  * -----------------------------------------------------------------------------------------------*/
 
-export interface SelectProps extends SelectPrimitive.SelectProps {
-  variant?: VariantProps<typeof selectTriggerVariants>['variant'];
-  size?: VariantProps<typeof selectTriggerVariants>['size'];
-  rounded?: VariantProps<typeof selectTriggerVariants>['rounded'];
-}
-
-const Select = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Root>,
-  SelectProps
->(({ variant, size, rounded, ...props }, ref) => {
-  return (
-    <SelectPrimitive.Root {...props} ref={ref}>
-      {props.children}
-    </SelectPrimitive.Root>
-  );
-});
+const Select = SelectPrimitive.Root;
 Select.displayName = SelectPrimitive.Root.displayName;
 
 /* -------------------------------------------------------------------------------------------------
@@ -150,8 +139,13 @@ const SelectValue = SelectPrimitive.Value;
  * -----------------------------------------------------------------------------------------------*/
 
 export interface SelectContentProps
-  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>,
-    VariantProps<typeof selectContentVariants> {}
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>,
+      'position'
+    >,
+    VariantProps<typeof selectContentVariants> {
+  position?: 'popper' | 'item-aligned';
+}
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
@@ -170,30 +164,31 @@ const SelectContent = React.forwardRef<
             position,
             rounded,
             className,
-          })
+          }),
+          'max-h-[var(--radix-select-content-available-height)]'
         )}
         position={position}
         {...props}
+        asChild
       >
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2 }}
-          className="p-1"
         >
-          <SelectPrimitive.ScrollUpButton className="flex h-6 cursor-default items-center justify-center bg-white text-slate-500">
+          <SelectPrimitive.ScrollUpButton className="flex h-6 cursor-default items-center justify-center bg-transparent text-slate-500">
             <ChevronUp className="h-4 w-4" />
           </SelectPrimitive.ScrollUpButton>
           <SelectPrimitive.Viewport
             className={cn(
-              'p-1',
+              'p-2',
               position === 'popper' &&
-                'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]'
+                'h-auto max-h-[var(--radix-select-content-available-height)] w-full min-w-[var(--radix-select-trigger-width)]'
             )}
           >
             {children}
           </SelectPrimitive.Viewport>
-          <SelectPrimitive.ScrollDownButton className="flex h-6 cursor-default items-center justify-center bg-white text-slate-500">
+          <SelectPrimitive.ScrollDownButton className="flex h-6 cursor-default items-center justify-center bg-transparent text-slate-500">
             <ChevronDown className="h-4 w-4" />
           </SelectPrimitive.ScrollDownButton>
         </motion.div>
@@ -236,13 +231,14 @@ const SelectItem = React.forwardRef<
     className={cn(selectItemVariants({ variant, className }))}
     {...props}
   >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-      <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
-      </SelectPrimitive.ItemIndicator>
-    </span>
-
-    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    <div className="flex items-center gap-2 w-full">
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
+        <SelectPrimitive.ItemIndicator>
+          <Check className="h-4 w-4" />
+        </SelectPrimitive.ItemIndicator>
+      </span>
+    </div>
   </SelectPrimitive.Item>
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
